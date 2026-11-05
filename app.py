@@ -77,6 +77,23 @@ if section == "Panorama general":
 
 elif section == "Partidos por semana":
     week=st.select_slider("Semana",options=sorted(games.week.unique()),value=7)
+    
+    if week == 9:
+        st.info("Verificacion del modelo - Semana 9")
+
+        prueba = games[
+            (games.week == 9) &
+            (games.home_team == "KC") &
+            (games.away_team == "NYJ")
+        ]
+
+        if not prueba.empty:
+            st.write(
+                "Probabilidad KC:",
+                round(float(prueba.iloc[0]["p_home_pre"]) * 100, 2),
+                "%"
+            )
+
     selected=games[games.week==week].copy()
     selected["Partido"] = selected.away_team.map(fmt) + " @ " + selected.home_team.map(fmt)
     selected["Local (%)"]=(selected.p_home_pre*100).round(1)

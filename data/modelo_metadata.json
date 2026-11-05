@@ -1,0 +1,14 @@
+{
+  "season": 2026,
+  "cutoff_week": 8,
+  "known_games": 121,
+  "remaining_games": 151,
+  "simulations": 10000,
+  "seed": 42,
+  "elo_k": 40.0,
+  "home_advantage": 42.2,
+  "playoff_elo_k": 48.0,
+  "playoff_tiebreakers": "approximation",
+  "predictions_retrained": false,
+  "source": "Original week <=6 baseline plus user-supplied weeks >=7 results"
+}
